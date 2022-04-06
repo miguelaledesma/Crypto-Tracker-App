@@ -3,7 +3,7 @@ import React from "react";
 const CoinPage = () => {
     return(
         <div>
-            CoinPage 
+            <h1>CoinPage</h1>
         </div>
     )
 }
