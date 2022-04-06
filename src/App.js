@@ -3,15 +3,27 @@ import Header from "./components/Header";
 import './App.css';
 import Homepage from "./Pages/Homepage";
 import CoinPage from "./Pages/CoinPage";
+import { makeStyles } from "@mui/material";
 
 function App() {
+
+  const useStyles = makeStyles(() => ({
+    App: {
+        backgroundColor : '#14161a', 
+        color: "white", 
+        minHeight: "100vh"
+    }
+  })); 
+
+  const classes = useStyles()
+
   return (
     <BrowserRouter>
-    <div>
+    <div className = {classes.App}>
       <Header /> 
-      <Route  path= '/' component ={Homepage} /> 
+      <Route  exact path= '/' component ={Homepage} /> 
       <Route  path= '/coins/:id' component ={CoinPage} /> 
-      Hello 
+       
     </div>
     </BrowserRouter>
 

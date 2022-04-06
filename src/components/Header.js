@@ -1,10 +1,11 @@
 import React from "react";
+import { AppBar } from "@mui/material";
 
 const Header = () => {
     return(
-        <div>
-            Header 
-        </div>
+        <AppBar color = 'transparent' >
+
+        </AppBar>
     )
 }
 
