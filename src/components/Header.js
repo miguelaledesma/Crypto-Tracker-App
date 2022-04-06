@@ -4,7 +4,7 @@ import { AppBar } from "@mui/material";
 const Header = () => {
     return(
         <AppBar color = 'transparent' >
-            Header HELLO!!! 
+            
         </AppBar>
     )
 }

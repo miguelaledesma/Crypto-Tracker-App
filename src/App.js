@@ -13,17 +13,16 @@ function App() {
    
     <div className = 'app' >
       <Header /> 
-      <CoinPage /> 
-      <Homepage/>
+      
+      
       <Routes>
 
-      <Route  exact path= '/'> 
+      <Route  exact path= '/' element = { <Homepage/>}/> 
       
-      </Route>
+     
       
-      <Route  path= '/coins/:id' >
-        
-        </Route> 
+      <Route  path= '/coins/:id' element = { <CoinPage />} />
+      
        
        </Routes>
     </div>
