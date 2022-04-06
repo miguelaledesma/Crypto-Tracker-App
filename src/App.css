@@ -18,3 +18,10 @@ a{
   color: white; 
   min-height: 100vh; 
   }
+
+  .title{
+    display: flex;
+    flex: 1;
+    color: gold; 
+    cursor: pointer;
+  }
