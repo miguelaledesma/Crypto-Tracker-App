@@ -3,6 +3,8 @@ import {createRoot} from 'react-dom/client';
 import { BrowserRouter as Router } from 'react-router-dom';
 import CryptoContext from './CryptoContext';
 import App from './App';
+import 'react-alice-carousel/lib/alice-carousel.css';
+
 
 // 👇️ IMPORTANT: use correct ID of your root element
 // this is the ID of the div in your index.html file

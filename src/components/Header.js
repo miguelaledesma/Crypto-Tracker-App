@@ -10,6 +10,7 @@ const Header = () => {
 
     const history = useNavigate()
     const { currency, setCurrency } = CryptoState()
+    
 
     const darkTheme = createTheme({
         palette: {
