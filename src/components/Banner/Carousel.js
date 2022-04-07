@@ -5,10 +5,17 @@ import { Link } from "react-router-dom";
 import { TrendingCoins } from "../../config/api";
 import { CryptoState } from "../../CryptoContext";
 
+
+
+export function numberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3}) + (?!\d))/g, ',')
+}
+
+
 const Carousel = () => {
 
     const [trending, setTrending] = useState([])
-    const { currency } = CryptoState()
+    const { currency, symbol } = CryptoState()
 
     const fetchTrendingCoins = async () => {
         const {data } = await axios.get(TrendingCoins(currency))
@@ -23,6 +30,9 @@ const Carousel = () => {
 
 
 const items = trending.map(coin => {
+       let percentChange = coin.price_change_percentage_24h >= 0
+
+
     return (
         <Link className = "carouselItem" to = {`/coins/${coin.id}`}>
         <img 
@@ -32,6 +42,13 @@ const items = trending.map(coin => {
         style = {{marginBottom: 10}}
         
         /> 
+
+        <span> {coin?.symbol} &nbsp;
+            <span style={{color: percentChange > 0 ? "green" : "red"}}  > {percentChange && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}% </span>
+        </span>
+
+        <span style = {{fontWeight: '800', fontSize: 20}}> {symbol}{numberWithCommas(coin?.current_price.toFixed(2))} </span>
+
         </Link>
     )
 })
