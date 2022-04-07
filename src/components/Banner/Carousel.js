@@ -60,7 +60,7 @@ const items = trending.map(coin => {
         items = {items}
         /> 
         
-         </div>
+        </div>
     )
 }
 
