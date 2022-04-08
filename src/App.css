@@ -55,3 +55,8 @@ a{
     cursor: pointer;
     text-transform: uppercase;
   }
+
+  .tableSymbol{
+    display: flex;
+    flex-direction: column;
+  }

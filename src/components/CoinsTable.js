@@ -2,8 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
-import { Link } from "react-router-dom";
 import { CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { numberWithCommas } from "./Banner/Carousel";
+
+
 
 
 
@@ -11,7 +13,7 @@ const CoinsTable = () => {
  
     const [coins, setCoins] = useState([]); 
     const [loading, setLoading ] = useState(false);
-    const { currency } = CryptoState()
+    const { currency, symbol } = CryptoState()
     const [search, setSearch] = useState()
     
     const fetchAllCoins = async() => {
@@ -21,7 +23,7 @@ const CoinsTable = () => {
 
         setLoading(false)
     } 
-    console.log(coins)
+    // console.log(coins)
 
     useEffect(()=>{
         fetchAllCoins()
@@ -55,7 +57,7 @@ const CoinsTable = () => {
                                     {["Coin", "Price", "24HR Change", "Market Cap"].map((head) => (
                                         <TableCell key = {head} style ={{color:"white"}} >
                                             {head}
-                                        </TableCell>
+                                </TableCell>
                                     ) )}
                                     
                                 </TableRow>
@@ -74,8 +76,25 @@ const CoinsTable = () => {
                                                 alt = {row.name}
                                                 height = '50'
                                                  /> 
+                                                 <div style = {{display: 'flex', flexDirection: "column"}}> 
+                                                    <span style = {{textTransform: "uppercase", fontSize: 20, align: 'center'}} >{row.symbol}</span>
+                                                 </div> 
 
                                             </TableCell>
+
+                                            <TableCell > 
+                                            {symbol} {" "} {numberWithCommas(row.current_price.toFixed(2))} 
+                                            </TableCell>
+
+
+                                            <TableCell key = {row.name} style = {{color: percentChange > 0 ? "green" : "red"}} >
+                                            {percentChange && "+"} {row?.price_change_percentage_24h?.toFixed(2)}%
+                                            </TableCell>
+
+                                           <TableCell align = "right">
+                                               {symbol} {numberWithCommas(row.market_cap.toFixed(2))}
+                                           </TableCell>
+
                                         </TableRow>
                                         )
                                     })
