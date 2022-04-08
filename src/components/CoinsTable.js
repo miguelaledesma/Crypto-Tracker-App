@@ -4,6 +4,7 @@ import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import { CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { numberWithCommas } from "./Banner/Carousel";
+import { Link } from "react-router-dom";
 
 
 
@@ -32,19 +33,29 @@ const CoinsTable = () => {
 
     const handleSearch = () => {
         return coins.filter((coin) => 
-            coin.name.toLowerCase().includes(search) || coin.symbol.toLowerCase().includes(search)
+            coin.name.includes(search) || coin.symbol.toLowerCase().includes(search)
         )
     }
 
 
     return (
 
-        <Container>
-            <Typography>
+        <Container style = {{textAlign: 'center'}}>
+            <Typography style = {{
+                        fontWeight: 400, 
+                        marginBottom: 15, 
+                        fontFamily: "Montserrat"
+                    }}>
                 Cryptocurrency by Market Cap 
             </Typography>
 
-            <TextField label= "Search Crypto" variant = "outlined" onChange = {(e) => setSearch(e.target.value)} /> 
+            <TextField 
+            fullWidth 
+            label= "Search Crypto"
+            variant = "outlined" 
+            onChange = {(e) => setSearch(e.target.value)} 
+            
+            /> 
 
             <TableContainer>
                 {
@@ -53,11 +64,15 @@ const CoinsTable = () => {
                     ) : (
                         <Table>
                             <TableHead>
-                                <TableRow style ={{color:"white"}} >
+                                <TableRow style ={{color:"white",}} >
                                     {["Coin", "Price", "24HR Change", "Market Cap"].map((head) => (
-                                        <TableCell key = {head} style ={{color:"white"}} >
-                                            {head}
-                                </TableCell>
+                                        <TableCell 
+                                        key ={head} 
+                                        style ={{color:"white", fontFamily: "Montserrat", backgroundColor: "#0c3c4c"}}
+                                        // align = {head === "Coin" ? " " : "right"}
+                                        >
+                                        {head}
+                                        </TableCell>
                                     ) )}
                                     
                                 </TableRow>
@@ -69,21 +84,25 @@ const CoinsTable = () => {
                                         const percentChange = row.price_change_percentage_24h > 0; 
                                         return( 
                                         <TableRow key = {row.name}>
-                                            <TableCell component = 'th' scope = 'row' style = {{display: 'flex', gap: '15'}} >
+                                            <Link to = { `/coins/${row.id}`}>
+                                            <TableCell component = 'th' scope = 'row' style = {{display: 'flex', gap: 15}} >
                                                 
                                                 <img 
                                                 src = {row.image}
                                                 alt = {row.name}
-                                                height = '50'
+                                                height = "50"
+                                                style = {{marginBottom: 10}}
                                                  /> 
-                                                 <div style = {{display: 'flex', flexDirection: "column"}}> 
-                                                    <span style = {{textTransform: "uppercase", fontSize: 20, align: 'center'}} >{row.symbol}</span>
+                                                 <div className = "coinRow"> 
+                                                    <span style = {{textTransform: "uppercase", fontSize: 20, color: "white"}} >{row.symbol}</span>
+                                                    <span style ={{color: 'white'}}>{row.name}</span>
                                                  </div> 
 
                                             </TableCell>
+                                            </Link>
 
-                                            <TableCell > 
-                                            {symbol} {" "} {numberWithCommas(row.current_price.toFixed(2))} 
+                                            <TableCell style = {{color: 'white'}} > 
+                                            {symbol}{""}{numberWithCommas(row.current_price.toFixed(2))} 
                                             </TableCell>
 
 
@@ -91,8 +110,8 @@ const CoinsTable = () => {
                                             {percentChange && "+"} {row?.price_change_percentage_24h?.toFixed(2)}%
                                             </TableCell>
 
-                                           <TableCell align = "right">
-                                               {symbol} {numberWithCommas(row.market_cap.toFixed(2))}
+                                           <TableCell align = "right" style = {{color: 'white'}}>
+                                               {symbol}{numberWithCommas(row.market_cap.toFixed(2))}
                                            </TableCell>
 
                                         </TableRow>
