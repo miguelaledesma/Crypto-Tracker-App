@@ -69,7 +69,7 @@ const CoinsTable = () => {
                                         <TableCell 
                                         key ={head} 
                                         style ={{color:"white", fontFamily: "Montserrat", backgroundColor: "#0c3c4c"}}
-                                        // align = {head === "Coin" ? " " : "right"}
+                                        align = {head === "Coin" ? " " : "right"}
                                         >
                                         {head}
                                         </TableCell>
@@ -101,12 +101,12 @@ const CoinsTable = () => {
                                             </TableCell>
                                             </Link>
 
-                                            <TableCell style = {{color: 'white'}} > 
+                                            <TableCell style = {{color: 'white'}} align = "right"> 
                                             {symbol}{""}{numberWithCommas(row.current_price.toFixed(2))} 
                                             </TableCell>
 
 
-                                            <TableCell key = {row.name} style = {{color: percentChange > 0 ? "green" : "red"}} >
+                                            <TableCell align = "right" key = {row.name} style = {{color: percentChange > 0 ? "green" : "red"}} >
                                             {percentChange && "+"} {row?.price_change_percentage_24h?.toFixed(2)}%
                                             </TableCell>
 
