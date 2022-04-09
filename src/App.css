@@ -81,8 +81,16 @@ a{
     border-right: 2px solid grey;
   }
 
-  .coinPageContainer{
-    display: flex;
-    flex-direction: column;
-    
+  @media only screen and (max-width: 600px) {
+    .coinPageContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .sideBar {
+      width: 100%;
+    }
   }

@@ -25,7 +25,8 @@ const CoinPage = () => {
     useEffect(() => {
         fetchSingleCoin()
     }, [])
-
+    
+    
     
     return(
         <div className = "coinPageContainer">
@@ -34,17 +35,20 @@ const CoinPage = () => {
                 src = {coin?.image.large}
                 alt = {coin?.name}
                 height = "200"
-                style = {{display: "flex",marginBottom: 20}}
+                style = {{marginBottom: 20}}
                 
                 /> 
-                <Typography className = "coinHeading">
+                <Typography 
+                style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold", fontSize: 50}}
+                className = "coinHeading">
                     {coin?.name}
                 </Typography>
 
                 <Typography 
+                style = {{color:"white", fontFamily: "Montserrat", align: "center"}}
                 variant="subtitle2" 
                 className = "coinDescription">
-                    { }
+                    {coin?.description.en.split(". ")[0]}
                 </Typography>
 
             </div>
