@@ -67,3 +67,16 @@ a{
   }
 
   /* style = {{display: "flex", flexDirection: "column",}} */
+
+  .coinPageContainer{
+    display: flex;
+  }
+
+  .sideBar{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25;
+    border-right: 2px solid grey;
+  }
