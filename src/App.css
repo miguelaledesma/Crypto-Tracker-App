@@ -80,3 +80,9 @@ a{
     margin-top: 25;
     border-right: 2px solid grey;
   }
+
+  .coinPageContainer{
+    display: flex;
+    flex-direction: column;
+    
+  }

@@ -7,6 +7,7 @@ import CoinInfo from "../components/CoinInfo";
 import { Typography } from "@mui/material";
 
 
+
 const CoinPage = () => {
     
     const { id }= useParams(); 
@@ -33,7 +34,7 @@ const CoinPage = () => {
                 src = {coin?.image.large}
                 alt = {coin?.name}
                 height = "200"
-                style = {{marginBottom: 20}}
+                style = {{display: "flex",marginBottom: 20}}
                 
                 /> 
                 <Typography className = "coinHeading">
@@ -43,7 +44,7 @@ const CoinPage = () => {
                 <Typography 
                 variant="subtitle2" 
                 className = "coinDescription">
-                    { coin?.description.en.split(". ")}
+                    { }
                 </Typography>
 
             </div>
