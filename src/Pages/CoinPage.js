@@ -5,7 +5,7 @@ import { CryptoState } from "../CryptoContext";
 import { SingleCoin } from "../config/api";
 import CoinInfo from "../components/CoinInfo";
 import { Typography } from "@mui/material";
-
+import HTMLReactParser from "html-react-parser";
 
 
 const CoinPage = () => {
@@ -45,10 +45,10 @@ const CoinPage = () => {
                 </Typography>
 
                 <Typography 
-                style = {{color:"white", fontFamily: "Montserrat", align: "center"}}
+                style = {{fontFamily: "Montserrat", align: "center"}}
                 variant="subtitle2" 
-                className = "coinDescription">
-                    {coin?.description.en.split(". ")[0]}
+                className = "coinDescription" >
+                    {HTMLReactParser(`${coin?.description.en.split(". ")[0]}`)}
                 </Typography>
 
             </div>
