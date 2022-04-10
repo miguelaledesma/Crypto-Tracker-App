@@ -23,7 +23,9 @@ const Banner = () => {
                     style = {{
                         color: 'darkgrey', 
                         textTransform: "capitalize", 
-                        fontFamily: "Montserrat"
+                        fontFamily: "Montserrat",
+                        marginBottom: 50,
+                        marginTop: 20
                     }}
                     >Get all the Info regarding your favorite Crypto</Typography>
 

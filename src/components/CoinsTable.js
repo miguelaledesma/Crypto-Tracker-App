@@ -5,6 +5,7 @@ import { CryptoState } from "../CryptoContext";
 import { CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { numberWithCommas } from "./Banner/Carousel";
 import { Link, useNavigate } from "react-router-dom";
+import { color } from "@mui/material/node_modules/@mui/system";
 
 
 
@@ -36,7 +37,7 @@ const CoinsTable = () => {
 
     const handleSearch = () => {
         return coins.filter((coin) => 
-            coin.name.includes(search) || coin.symbol.toLowerCase().includes(search)
+            coin.name.includes(search) || coin.symbol.includes(search)
         )
     }
 
@@ -46,8 +47,10 @@ const CoinsTable = () => {
         <Container style = {{textAlign: 'center'}}>
             <Typography style = {{
                         fontWeight: 400, 
-                        marginBottom: 15, 
-                        fontFamily: "Montserrat"
+                        marginBottom: 15,
+                        marginTop: 20,  
+                        fontFamily: "Montserrat",
+                        color: "darkgrey"
                     }}>
                 Cryptocurrency by Market Cap 
             </Typography>
@@ -56,6 +59,7 @@ const CoinsTable = () => {
             fullWidth 
             label= "Search Crypto"
             variant = "outlined" 
+            style = {{color: "white"}}
             onChange = {(e) => setSearch(e.target.value)} 
             
             /> 
@@ -89,6 +93,7 @@ const CoinsTable = () => {
                                         <TableRow
                                          key = {row.name}
                                          onClick ={() => history(`/coins/${row.id}`)}
+                                        
                                          style ={{cursor: "pointer"}} >
                                             
                                             <TableCell component = 'th' scope = 'row' style = {{display: 'flex', gap: 15}} >

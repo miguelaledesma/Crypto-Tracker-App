@@ -75,6 +75,8 @@ const items = trending.map(coin => {
         animationDuration = {1500}
         responsive = {responsive}
         autoPlay
+        disableButtonsControls
+        disableDotsControls
         
         items = {items}
         /> 
