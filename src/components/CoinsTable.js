@@ -4,7 +4,7 @@ import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import { CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { numberWithCommas } from "./Banner/Carousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
@@ -16,7 +16,8 @@ const CoinsTable = () => {
     const [loading, setLoading ] = useState(false);
     const { currency, symbol } = CryptoState()
     const [search, setSearch] = useState()
-    
+    const history = useNavigate()
+
     const fetchAllCoins = async() => {
         setLoading(true)
         const {data} = await axios.get(CoinList(currency))
@@ -24,6 +25,8 @@ const CoinsTable = () => {
 
         setLoading(false)
     } 
+
+    
     // console.log(coins)
 
     useEffect(()=>{
@@ -83,8 +86,11 @@ const CoinsTable = () => {
                                     handleSearch().map(row => {
                                         const percentChange = row.price_change_percentage_24h > 0; 
                                         return( 
-                                        <TableRow key = {row.name}>
-                                            <Link to = { `/coins/${row.id}`}>
+                                        <TableRow
+                                         key = {row.name}
+                                         onClick ={() => history(`/coins/${row.id}`)}
+                                         style ={{cursor: "pointer"}} >
+                                            
                                             <TableCell component = 'th' scope = 'row' style = {{display: 'flex', gap: 15}} >
                                                 
                                                 <img 
@@ -99,7 +105,7 @@ const CoinsTable = () => {
                                                  </div> 
 
                                             </TableCell>
-                                            </Link>
+                                            
 
                                             <TableCell style = {{color: 'white'}} align = "right"> 
                                             {symbol}{""}{numberWithCommas(row.current_price.toFixed(2))} 
