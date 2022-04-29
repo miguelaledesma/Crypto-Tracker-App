@@ -45,11 +45,14 @@ const items = trending.map(coin => {
         /> 
 
         <span style = {{fontFamily: "Montserrat"}}> {coin?.symbol} &nbsp;
-            <span style={{color: percentChange > 0 ? "green" : "red", fontFamily: "Montserrat"}}> {percentChange && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+            <span style={{color: percentChange > 0 ? "green" : "red", fontFamily: "Montserrat"}}> 
+            {percentChange && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
             </span>
         </span>
 
-        <span style = {{fontWeight: '800', fontSize: 20, fontFamily: 'Montserrat'}}> {symbol}{numberWithCommas(coin?.current_price.toFixed(2))} </span>
+        <span style = {{fontWeight: '800', fontSize: 20, fontFamily: 'Montserrat'}}> 
+                {symbol}{numberWithCommas(coin?.current_price.toFixed(2))} 
+        </span>
 
         </Link>
     )
