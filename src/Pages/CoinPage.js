@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { CryptoState } from "../CryptoContext";
 import { SingleCoin } from "../config/api";
 import CoinInfo from "../components/CoinInfo";
-import { CircularProgress, LinearProgress, Typography } from "@mui/material";
+import {  LinearProgress, Typography } from "@mui/material";
 import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/Banner/Carousel";
 

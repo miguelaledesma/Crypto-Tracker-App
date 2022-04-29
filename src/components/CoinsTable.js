@@ -38,7 +38,7 @@ const CoinsTable = () => {
 
     const handleSearch = () => {
         return coins.filter((coin) => 
-            coin.name.includes(search) || coin.symbol.includes(search)
+            coin?.name.includes(search) || coin.symbol.includes(search)
             // coin.name.includes(search) || coin?.name 
         )
     }
@@ -92,7 +92,7 @@ const CoinsTable = () => {
                             <TableBody>
                                 {
                                     handleSearch()
-                                    .slice((page - 1 * 10,(page - 1)* 10 + 10))
+                                    .slice((page - 1 * 10, (page - 1)* 10 - 10))
                                     .map(row => {
                                         const percentChange = row.price_change_percentage_24h > 0; 
                                         return( 
@@ -111,23 +111,23 @@ const CoinsTable = () => {
                                                 style = {{marginBottom: 10}}
                                                  /> 
                                                  <div className = "coinRow"> 
-                                                    <span style = {{textTransform: "uppercase", fontSize: 20, color: "white"}} >{row.symbol}</span>
-                                                    <span style ={{color: 'white'}}>{row.name}</span>
+                                                    <span style = {{textTransform: "uppercase", fontSize: 20, color: "white", fontFamily: "Montserrat"}} >{row.symbol}</span>
+                                                    <span style ={{color: 'white',fontFamily: "Montserrat"}}>{row.name}</span>
                                                  </div> 
 
                                             </TableCell>
                                             
 
-                                            <TableCell style = {{color: 'white'}} align = "right"> 
+                                            <TableCell style = {{color: 'white', fontFamily: 'Montserrat'}} align = "right"> 
                                             {symbol}{""}{numberWithCommas(row.current_price.toFixed(2))} 
                                             </TableCell>
 
 
-                                            <TableCell align = "right" key = {row.name} style = {{color: percentChange > 0 ? "green" : "red"}} >
+                                            <TableCell align = "right" key = {row.name} style = {{color: percentChange > 0 ? "green" : "red", fontFamily: 'Montserrat'}} >
                                             {percentChange && "+"} {row?.price_change_percentage_24h?.toFixed(2)}%
                                             </TableCell>
 
-                                           <TableCell align = "right" style = {{color: 'white'}}>
+                                           <TableCell align = "right" style = {{color: 'white', fontFamily: 'Montserrat'}}>
                                                {symbol}{numberWithCommas(row.market_cap.toFixed(2))}
                                            </TableCell>
 
@@ -142,7 +142,7 @@ const CoinsTable = () => {
             
             </TableContainer> 
             <Pagination
-            count = {(handleSearch()?.length / 10).toFixed(0)}
+            count = {(handleSearch()?.length /10).toFixed(0)}
             color = 'primary'
             variant = 'outlined'
             onChange = {(_, value) => {
