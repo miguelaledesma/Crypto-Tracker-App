@@ -2,10 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
-import { CircularProgress, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
+import { CircularProgress, Container, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { numberWithCommas } from "./Banner/Carousel";
 import { Link, useNavigate } from "react-router-dom";
-import { color } from "@mui/material/node_modules/@mui/system";
+
 
 
 
@@ -16,7 +16,8 @@ const CoinsTable = () => {
     const [coins, setCoins] = useState([]); 
     const [loading, setLoading ] = useState(false);
     const { currency, symbol } = CryptoState()
-    const [search, setSearch] = useState()
+    const [search, setSearch] = useState("")
+    const [page, setPage] = useState(1)
     const history = useNavigate()
 
     const fetchAllCoins = async() => {
@@ -37,8 +38,8 @@ const CoinsTable = () => {
 
     const handleSearch = () => {
         return coins.filter((coin) => 
-            // coin.name.includes(search) || coin.symbol.includes(search)
-            coin.name.includes(search) || coin?.name 
+            coin.name.includes(search) || coin.symbol.includes(search)
+            // coin.name.includes(search) || coin?.name 
         )
     }
 
@@ -58,9 +59,11 @@ const CoinsTable = () => {
 
             <TextField 
             fullWidth 
-            label= "Search Crypto"
+            label="Search Crypto"
             variant = "outlined" 
-            style = {{color: "white"}}
+            color = 'primary'
+            focused
+            
             onChange = {(e) => setSearch(e.target.value)} 
             
             /> 
@@ -88,7 +91,9 @@ const CoinsTable = () => {
 
                             <TableBody>
                                 {
-                                    handleSearch().map(row => {
+                                    handleSearch()
+                                    .slice((page - 1 * 10,(page - 1)* 10 + 10))
+                                    .map(row => {
                                         const percentChange = row.price_change_percentage_24h > 0; 
                                         return( 
                                         <TableRow
@@ -136,6 +141,16 @@ const CoinsTable = () => {
                 }
             
             </TableContainer> 
+            <Pagination
+            count = {(handleSearch()?.length / 10).toFixed(0)}
+            color = 'primary'
+            variant = 'outlined'
+            onChange = {(_, value) => {
+                setPage(value); 
+                window.scroll(0,450)
+            }}
+
+            /> 
 
         </Container>
         
