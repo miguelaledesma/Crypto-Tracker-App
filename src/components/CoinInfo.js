@@ -2,7 +2,7 @@ import React from "react";
 
 const CoinInfo = () => {
     return (
-        <div> coin info </div>
+        <div> coin info is working </div>
     )
 }
 
