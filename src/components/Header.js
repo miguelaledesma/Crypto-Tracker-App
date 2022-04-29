@@ -38,8 +38,10 @@ const Header = () => {
                          width: 100, 
                          height: 40,
                          marginRight: 15,
+                         color: 'white'
                          
                      }}
+
                      value = { currency }
                      onChange = {(e) => setCurrency(e.target.value)}
                      >
