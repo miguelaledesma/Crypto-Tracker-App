@@ -16,13 +16,15 @@ const CoinPage = () => {
     const {loading, setLoading } = useState(false)
 
     const fetchSingleCoin = async() => {
-       
+        
         const {data} = await axios.get(SingleCoin(id))
         setCoin(data)
+        
     }
-    console.log(coin)
+    // console.log(coin)
 
     useEffect(() => {
+        
         fetchSingleCoin()
     }, [])
     
@@ -32,7 +34,9 @@ const CoinPage = () => {
         
 
         <div className = "coinPageContainer">
+            
             <div className = "sideBar"> 
+
             
                 <img 
                 src = {coin?.image.large}
@@ -47,8 +51,13 @@ const CoinPage = () => {
                 className = "coinHeading">
                     {coin?.name}
                 </Typography>
+
+                
                 
                 <Typography 
+
+                
+
                 style = {{fontFamily: "Montserrat", align: "center"}}
                 variant="subtitle2" 
                 className = "coinDescription" >
@@ -57,7 +66,7 @@ const CoinPage = () => {
 
             </div>
             <CoinInfo coin = {coin} /> 
-            
+                
         </div>
     )
 }

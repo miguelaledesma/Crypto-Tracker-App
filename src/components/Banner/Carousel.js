@@ -1,3 +1,4 @@
+import { fontFamily } from "@mui/material/node_modules/@mui/system";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -43,12 +44,12 @@ const items = trending.map(coin => {
         
         /> 
 
-        <span> {coin?.symbol} &nbsp;
-            <span style={{color: percentChange > 0 ? "green" : "red"}}> {percentChange && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
+        <span style = {{fontFamily: "Montserrat"}}> {coin?.symbol} &nbsp;
+            <span style={{color: percentChange > 0 ? "green" : "red", fontFamily: "Montserrat"}}> {percentChange && "+"} {coin?.price_change_percentage_24h?.toFixed(2)}%
             </span>
         </span>
 
-        <span style = {{fontWeight: '800', fontSize: 20}}> {symbol}{numberWithCommas(coin?.current_price.toFixed(2))} </span>
+        <span style = {{fontWeight: '800', fontSize: 20, fontFamily: 'Montserrat'}}> {symbol}{numberWithCommas(coin?.current_price.toFixed(2))} </span>
 
         </Link>
     )

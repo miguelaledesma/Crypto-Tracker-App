@@ -37,7 +37,8 @@ const CoinsTable = () => {
 
     const handleSearch = () => {
         return coins.filter((coin) => 
-            coin.name.includes(search) || coin.symbol.includes(search)
+            // coin.name.includes(search) || coin.symbol.includes(search)
+            coin.name.includes(search) || coin?.name 
         )
     }
 
