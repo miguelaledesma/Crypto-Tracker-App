@@ -61,8 +61,10 @@ const CoinsTable = () => {
             fullWidth 
             label="Search Crypto"
             variant = "outlined" 
+            inputProps={{ style: { color: "white" } }}
             color = 'primary'
             focused
+            
             
             onChange = {(e) => setSearch(e.target.value)} 
             
