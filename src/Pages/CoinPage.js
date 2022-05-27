@@ -28,7 +28,7 @@ const CoinPage = () => {
     }, [])
     
     if(!coin){
-        return <LinearProgress style= {{backgroundColor: 'gold'}} /> 
+        return <LinearProgress style= {{backgroundColor: '#0c3c4c'}} /> 
     }
         
     

@@ -17,6 +17,6 @@ import App from "./App";
 // afterEach(() => server.resetHandlers())
 // afterAll(() => server.close())
 
-// test('renders root component', async  () => {
-
-// })
+test('renders root component', async  () => {
+    render(<CoinsTable /> )
+})
