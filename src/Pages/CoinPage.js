@@ -102,14 +102,14 @@ const CoinPage = () => {
                         variant = 'h5'
                         style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold"}}
                         >
-                            Market Cap: 
+                         Market Cap: 
                         </Typography>
                         &nbsp; &nbsp; 
                         <Typography
                         variant = 'h5'
                         style = {{color:"white", fontFamily: "Montserrat"}}
                         > 
-                        {symbol}{" "}{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0))} 
+                        {symbol}{""}{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0))} 
                         </Typography>
 
                     </span>

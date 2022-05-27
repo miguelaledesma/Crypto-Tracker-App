@@ -46,7 +46,7 @@ const CoinInfo = ({coin}) => {
               !historicalData ? (
                 <CircularProgress size = {150} style ={{color: 'blue'}} thickness = {1}/>
             ): (<>
-                 <Line
+                 <Line 
               data={{
                 labels: historicalData.map((coin) => {
                   let date = new Date(coin[0]);
@@ -60,8 +60,9 @@ const CoinInfo = ({coin}) => {
                 datasets: [
                   {
                     data: historicalData.map((coin) => coin[1]),
-                    label: `Price ( Past ${days} Days ) in ${currency}`,
-                    borderColor: "blue",
+                    label: `${currency}`,
+                    borderColor: "#0c3c4c",
+
                   },
                 ],
               }}
@@ -71,6 +72,7 @@ const CoinInfo = ({coin}) => {
                     radius: 1,
                   },
                 },
+                animation: false
               }}
             />
                 </>)

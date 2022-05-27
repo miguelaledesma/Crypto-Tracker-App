@@ -15,7 +15,7 @@ const Banner = () => {
                         fontFamily: "Montserrat"
                     }}
                     >
-                        Crypto Tracker 
+                        Pocket Crypto 
                     </Typography>
 
                     <Typography

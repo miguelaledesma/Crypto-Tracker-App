@@ -24,16 +24,16 @@ const Header = () => {
 
     return(
         <ThemeProvider theme ={darkTheme} >
-        <AppBar color = 'transparent' position = 'static'>
+        <AppBar color = 'transparent' position = 'static'  title={<img src="" alt = "logo"/>}>
             <Container>
                 <Toolbar>
                     <Typography 
                     onClick = {() => history('/')} 
                     className = "title" 
                     style = {{fontFamily: 'Montserrat', fontWeight: 'bold' }}
-                    >Crypto Tracker</Typography>
+                    >Pocket Crypto</Typography>
 
-                    <Select variant = "outlined"
+                    <Select className = "selectDrop" variant = "outlined"
                      style = {{
                          width: 100, 
                          height: 40,
