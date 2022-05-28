@@ -91,7 +91,10 @@ a{
       padding: 40;
   }
 
- 
+  .accordian{
+    margin: 10px;
+    padding: 10px; 
+  }
 
   @media only screen and (max-width: 600px) {
     .coinPageContainer {

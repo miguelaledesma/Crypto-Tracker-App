@@ -4,9 +4,12 @@ import { useParams } from "react-router";
 import { CryptoState } from "../CryptoContext";
 import { SingleCoin } from "../config/api";
 import CoinInfo from "../components/CoinInfo";
-import {  LinearProgress, Typography } from "@mui/material";
+import {  Accordion, LinearProgress, Typography } from "@mui/material";
 import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/Banner/Carousel";
+import { AccordionDetails} from "@mui/material";
+import { AccordionSummary } from "@mui/material";
+
 
 const CoinPage = () => {
     
@@ -55,14 +58,33 @@ const CoinPage = () => {
                     {coin?.name}
                 </Typography>
 
-                
-                
-                <Typography 
+                <Accordion className = "accordian" style ={{backgroundColor:'#14161a', color: 'white'}}>
+            <AccordionSummary
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+            >
+          <Typography style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold"}}>Expand Coin Info</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+        <Typography 
                 style = {{fontFamily: "Montserrat", align: "center"}}
                 variant="subtitle2" 
                 className = "coinDescription" >
                     {HTMLReactParser(`${coin?.description.en.split(" .")[0]}`)}
                 </Typography>
+          {/* <Typography>
+            
+          </Typography> */}
+        </AccordionDetails>
+      </Accordion>
+                
+                {/* <Typography 
+                style = {{fontFamily: "Montserrat", align: "center"}}
+                variant="subtitle2" 
+                className = "coinDescription" >
+                    {HTMLReactParser(`${coin?.description.en.split(" .")[0]}`)}
+                </Typography> */}
+               
 
                 <div className = "marketData">
                     <span style = {{display: 'flex'}}>
@@ -94,6 +116,7 @@ const CoinPage = () => {
                         style = {{color:"white", fontFamily: "Montserrat"}}
                         > 
                         {symbol}{" "}{numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()].toString().slice(0))} 
+                       
                         </Typography>
 
                     </span>
@@ -124,3 +147,6 @@ const CoinPage = () => {
 }
 
 export default CoinPage
+
+
+ 
