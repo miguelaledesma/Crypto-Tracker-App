@@ -9,6 +9,9 @@ import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import { AccordionDetails} from "@mui/material";
 import { AccordionSummary } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Expand } from "@mui/icons-material";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 
 const CoinPage = () => {
@@ -60,6 +63,7 @@ const CoinPage = () => {
 
                 <Accordion className = "accordian" style ={{backgroundColor:'#14161a', color: 'white'}}>
             <AccordionSummary
+                expandIcon = {<ExpandMore style = {{color:'white'}}/>}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
             >
@@ -89,14 +93,16 @@ const CoinPage = () => {
                 <div className = "marketData">
                     <span style = {{display: 'flex'}}>
                         <Typography
-                        variant = 'h5'
+                        className = "rank"
+                        
                         style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold"}}
                         >
                             Rank: 
                         </Typography>
                         &nbsp; &nbsp; 
                         <Typography
-                        variant = 'h5'
+                        className = 'rankMarket'
+                        
                         style = {{color:"white", fontFamily: "Montserrat"}}
                         > 
                         {coin?.market_cap_rank}
@@ -105,14 +111,16 @@ const CoinPage = () => {
                     </span>
                     <span style = {{display: 'flex'}}>
                         <Typography
-                        variant = 'h5'
+                        className = "currentPrice"
+                        
                         style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold"}}
                         >
                             Current Price: 
                         </Typography>
                         &nbsp; &nbsp; 
                         <Typography
-                        variant = 'h5'
+                        className = "coinInfoPrice"
+                        
                         style = {{color:"white", fontFamily: "Montserrat"}}
                         > 
                         {symbol}{" "}{numberWithCommas(coin?.market_data.current_price[currency.toLowerCase()].toString().slice(0))} 
@@ -122,14 +130,15 @@ const CoinPage = () => {
                     </span>
                     <span style = {{display: 'flex'}}>
                         <Typography
-                        variant = 'h5'
+
+                        
                         style = {{color:"white", fontFamily: "Montserrat", fontWeight: "bold"}}
                         >
                          Market Cap: 
                         </Typography>
                         &nbsp; &nbsp; 
                         <Typography
-                        variant = 'h5'
+                        
                         style = {{color:"white", fontFamily: "Montserrat"}}
                         > 
                         {symbol}{""}{numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0))} 
