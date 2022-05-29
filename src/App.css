@@ -96,6 +96,10 @@ a{
     padding: 10px; 
   }
 
+  .MuiPagination-li{
+     color:white; 
+  }
+
   @media only screen and (max-width: 600px) {
     .coinPageContainer {
       display: flex;

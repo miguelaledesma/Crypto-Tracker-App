@@ -1,10 +1,9 @@
-import axios from "axios";
+
 import React, { useEffect, useState } from "react";
-import { CoinList } from "../config/api";
 import { CryptoState } from "../CryptoContext";
 import { CircularProgress, Container, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import { numberWithCommas } from "./Banner/Carousel";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -13,20 +12,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 const CoinsTable = () => {
  
-    const [coins, setCoins] = useState([]); 
-    const [loading, setLoading ] = useState(false);
-    const { currency, symbol } = CryptoState()
+    const { currency, symbol, coins, loading, fetchAllCoins } = CryptoState()
     const [search, setSearch] = useState("")
     const [page, setPage] = useState(1)
     const history = useNavigate()
 
-    const fetchAllCoins = async() => {
-        setLoading(true)
-        const {data} = await axios.get(CoinList(currency))
-        setCoins(data)
-
-        setLoading(false)
-    } 
 
     
     // console.log(coins)
@@ -144,8 +134,9 @@ const CoinsTable = () => {
             </TableContainer> 
             <Pagination
             count = {(handleSearch()?.length /10).toFixed(0)}
-            color = 'primary'
+            // color = 'primary'
             variant = 'outlined'
+            
             onChange = {(_, value) => {
                 setPage(value); 
                 window.scroll(0,450)
