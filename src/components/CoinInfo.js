@@ -69,7 +69,7 @@ const CoinInfo = ({coin}) => {
               options={{
                 elements: {
                   point: {
-                    radius: 1,
+                    radius: 5,
                   },
                 },
                 animation: false
