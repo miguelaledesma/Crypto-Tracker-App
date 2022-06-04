@@ -3,8 +3,7 @@ import { AppBar, Container, MenuItem, Select, Toolbar, Typography } from "@mui/m
 import {  useNavigate } from "react-router";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CryptoState } from "../CryptoContext";
-
-
+import HomeIcon from '@mui/icons-material/Home';
 
 const Header = () => {
 
@@ -27,11 +26,15 @@ const Header = () => {
         <AppBar color = 'transparent' position = 'static'>
             <Container>
                 <Toolbar>
-                    <Typography 
+                    <HomeIcon 
                     onClick = {() => history('/')} 
+                    cursor = 'pointer'
+                    fontSize = 'large'
+                    /> 
+                    <Typography 
                     className = "title" 
                     style = {{fontFamily: 'Montserrat', fontWeight: 'bold' }}
-                    >Pocket Crypto</Typography>
+                    ></Typography>
 
                     <Select className = "selectDrop" variant = "outlined"
                      style = {{

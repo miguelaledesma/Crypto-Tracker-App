@@ -9,14 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 
 
-
 const CoinsTable = () => {
  
     const { currency, symbol, coins, loading, fetchAllCoins } = CryptoState()
     const [search, setSearch] = useState("")
     const [page, setPage] = useState(1)
     const history = useNavigate()
-
+    
 
     
     // console.log(coins)
@@ -132,18 +131,15 @@ const CoinsTable = () => {
                 }
             
             </TableContainer> 
+            
             <Pagination
             count = {(handleSearch()?.length /10).toFixed(0)}
-            // color = 'primary'
             variant = 'outlined'
-            
             onChange = {(_, value) => {
                 setPage(value); 
                 window.scroll(0,450)
             }}
-
             /> 
-
         </Container>
         
     )
