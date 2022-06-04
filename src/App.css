@@ -1,127 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
-a{
+a {
   text-decoration: none;
-  color:white;
+  color: white;
 }
 
-.app{
-  background-color:#14161a;  
-  color: white; 
-  min-height: 100vh; 
-  }
+.app {
+  background-color: #14161a;
+  color: white;
+  min-height: 100vh;
+}
 
-  .title{
-    display: flex;
-    flex: 1;
-    color: #0c3c4c; 
-    cursor: pointer;
-  }
+.title {
+  display: flex;
+  flex: 1;
+  color: #0c3c4c;
+  cursor: pointer;
+}
 
-  .banner{
-    height: 400;
+.banner {
+  height: 400;
+  display: flex;
+  flex-direction: column;
+  padding-top: 25;
+  justify-content: space-around;
+}
+
+.tagline {
+  display: flex;
+  height: 40%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel {
+  height: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.coinRow {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+/* style = {{display: "flex", flexDirection: "column",}} */
+
+.coinPageContainer {
+  display: flex;
+  padding: 20px;
+}
+
+.sideBar {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25;
+  border-right: 2px solid grey;
+}
+
+.chartContainer {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25;
+  padding: 40;
+}
+
+.accordian {
+  margin: 10px;
+  padding: 10px;
+}
+
+.css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .coinPageContainer {
     display: flex;
     flex-direction: column;
-    padding-top: 25;
-    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
   }
-
-  .tagline{
+  .chartContainer {
+    width: 100%;
     display: flex;
-    height: 40%; 
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .carousel{
-    height: 50%;
-    display: flex;
     align-items: center;
   }
+}
 
-  .carouselItem{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    text-transform: uppercase;
-    
-    
+@media only screen and (max-width: 600px) {
+  .sideBar {
+    width: 100%;
+    border-right: 2px solid #14161a;
   }
-
-
-  .coinRow{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-  }
-
-  /* style = {{display: "flex", flexDirection: "column",}} */
-
-  .coinPageContainer{
-    display: flex;
-    padding:20px; 
-  }
-
-  .sideBar{
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 25;
-    border-right: 2px solid grey;
-  }
-
-  .chartContainer{
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-      justify-content: center;
-      margin-top: 25;
-      padding: 40;
-  }
-
-  .accordian{
-    margin: 10px;
-    padding: 10px; 
-  }
-
-  .css-lqq3n7-MuiButtonBase-root-MuiPaginationItem-root{
-    color: white;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .coinPageContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding:20px; 
-    }
-    .chartContainer{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-
-    
-  }
-
-  @media only screen and (max-width: 600px) {
-    .sideBar {
-      width: 100%;
-      border-right: 2px solid #14161a; 
-    }
-    
-  }
+}
