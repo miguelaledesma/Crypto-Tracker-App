@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar color="transparent" position="static">
+      <AppBar color="transparent" position="static" sx={{ bgcolor: "#3E2C41" }}>
         <Container>
           <Toolbar>
             <HomeIcon
@@ -43,6 +43,7 @@ const Header = () => {
             <Select
               className="selectDrop"
               variant="outlined"
+              sx={{ borderColor: "white" }}
               style={{
                 width: 100,
                 height: 40,

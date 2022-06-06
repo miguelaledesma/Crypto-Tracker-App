@@ -55,9 +55,14 @@ const CoinsTable = () => {
         fullWidth
         label="Search Crypto"
         variant="outlined"
-        inputProps={{ style: { color: "white" } }}
+        input
+        inputProps={{
+          style: { color: "white", fontFamily: "Montserrat", fontSize: 15 },
+        }}
+        InputLabelProps={{ style: { color: "white" } }}
         color="primary"
         focused
+        className="searchBar"
         onChange={(e) => setSearch(e.target.value)}
       />
 
@@ -74,7 +79,7 @@ const CoinsTable = () => {
                     style={{
                       color: "white",
                       fontFamily: "Montserrat",
-                      backgroundColor: "#0c3c4c",
+                      backgroundColor: "#6E85B2",
                     }}
                     align={head === "Coin" ? " " : "right"}
                   >

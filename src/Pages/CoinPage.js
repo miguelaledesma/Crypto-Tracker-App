@@ -52,46 +52,6 @@ const CoinPage = () => {
           {coin?.name}
         </Typography>
 
-        <Accordion
-          className="accordian"
-          style={{ backgroundColor: "#14161a", color: "white" }}
-        >
-          <AccordionSummary
-            expandIcon={<ExpandMore style={{ color: "white" }} />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography
-              style={{
-                color: "white",
-                fontFamily: "Montserrat",
-                fontWeight: "bold",
-              }}
-            >
-              Expand Coin Info
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography
-              style={{ fontFamily: "Montserrat", align: "center" }}
-              variant="subtitle2"
-              className="coinDescription"
-            >
-              {HTMLReactParser(`${coin?.description.en.split(" .")[0]}`)}
-            </Typography>
-            {/* <Typography>
-            
-          </Typography> */}
-          </AccordionDetails>
-        </Accordion>
-
-        {/* <Typography 
-                style = {{fontFamily: "Montserrat", align: "center"}}
-                variant="subtitle2" 
-                className = "coinDescription" >
-                    {HTMLReactParser(`${coin?.description.en.split(" .")[0]}`)}
-                </Typography> */}
-
         <div className="marketData">
           <span style={{ display: "flex" }}>
             <Typography
@@ -158,7 +118,40 @@ const CoinPage = () => {
             </Typography>
           </span>
         </div>
+        <Accordion
+          className="accordian"
+          style={{ backgroundColor: "#5C527F", color: "white" }}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMore style={{ color: "white" }} />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography
+              style={{
+                color: "white",
+                fontFamily: "Montserrat",
+                fontWeight: "bold",
+              }}
+            >
+              Expand Coin Info
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography
+              style={{ fontFamily: "Montserrat", align: "center" }}
+              variant="subtitle2"
+              className="coinDescription"
+            >
+              {HTMLReactParser(`${coin?.description.en.split(" .")[0]}`)}
+            </Typography>
+            {/* <Typography>
+            
+          </Typography> */}
+          </AccordionDetails>
+        </Accordion>
       </div>
+
       <CoinInfo coin={coin} />
     </div>
   );
