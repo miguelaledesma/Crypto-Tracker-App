@@ -9,8 +9,6 @@ import HTMLReactParser from "html-react-parser";
 import { numberWithCommas } from "../components/Banner/Carousel";
 import { AccordionDetails } from "@mui/material";
 import { AccordionSummary } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Expand } from "@mui/icons-material";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const CoinPage = () => {
