@@ -21,11 +21,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# from npm/react
-/npm/react/bin/*
-/npm/react/cypress/videos
-/npm/react/.babel-cache
-
-# from npm/webpack-dev-server
-/npm/webpack-dev-server/cypress/videos
