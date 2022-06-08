@@ -11,6 +11,7 @@ import { useNavigate } from "react-router";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { CryptoState } from "../CryptoContext";
 import HomeIcon from "@mui/icons-material/Home";
+import AuthModal from "./Authentication/AuthModal";
 
 const Header = () => {
   const history = useNavigate();
@@ -56,6 +57,8 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
+
+            <AuthModal />
           </Toolbar>
         </Container>
       </AppBar>
