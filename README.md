@@ -14,9 +14,9 @@ Clone this repository. You will need node and npm installed globally on your mac
 
 npm install
 
-# To Run Test Suite(Cypress):
+<!-- # To Run Test Suite(Cypress):
 
-npx cypress open 
+npx cypress open  -->
 
 # To Start Server:
 
