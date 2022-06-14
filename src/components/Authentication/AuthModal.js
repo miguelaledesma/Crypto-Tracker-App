@@ -7,6 +7,8 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import { AppBar } from "@mui/material";
 import { Tabs, Tab } from "@mui/material";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 const style = {
   position: "absolute",
@@ -72,9 +74,13 @@ export default function AuthModal() {
                 style={{ borderRadius: 10 }}
               >
                 <Tab style={{ color: "#5C527F" }} label="Login" />
+
                 <Tab style={{ color: "#5C527F" }} label="Sign Up" />
               </Tabs>
             </AppBar>
+
+            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 1 && <SignUp handleClose={handleClose} />}
           </Box>
         </Fade>
       </Modal>

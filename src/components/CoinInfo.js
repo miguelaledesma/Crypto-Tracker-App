@@ -60,14 +60,14 @@ const CoinInfo = ({ coin }) => {
                 {
                   data: historicalData.map((coin) => coin[1]),
                   label: `${currency}`,
-                  borderColor: "#0c3c4c",
+                  borderColor: "#c08aff",
                 },
               ],
             }}
             options={{
               elements: {
                 point: {
-                  radius: 5,
+                  radius: 1,
                 },
               },
               animation: false,
