@@ -10,6 +10,8 @@ const SignUp = ({ handleClose }) => {
   //     return setEmail(e.target.value);
   //   };
 
+  const handleSubmit = () => {};
+
   return (
     <Box>
       <TextField
@@ -21,6 +23,7 @@ const SignUp = ({ handleClose }) => {
         autoComplete="current-email"
         variant="standard"
         fullWidth
+        sx={{ marginTop: ".5rem" }}
       />
 
       <TextField
@@ -47,9 +50,12 @@ const SignUp = ({ handleClose }) => {
       <Button
         variant="contained"
         fullWidth
+        onSubmit={handleSubmit}
         sx={{
           color: "white",
           backgroundColor: "#5C527F",
+          padding: "1rem",
+          marginTop: "1rem",
         }}
       >
         Sign Up

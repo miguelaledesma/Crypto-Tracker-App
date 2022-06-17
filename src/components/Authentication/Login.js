@@ -1,7 +1,9 @@
 import React from "react";
 
 const Login = ({ handleClose }) => {
-  return <> Login will be ready soon! </>;
+  return (
+    <p style={{ fontFamily: "Montserrat" }}> Login will be ready soon! </p>
+  );
 };
 
 export default Login;
