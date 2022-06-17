@@ -1,4 +1,4 @@
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Button } from "@mui/material";
 import React, { useState } from "react";
 
 const SignUp = ({ handleClose }) => {
@@ -43,6 +43,17 @@ const SignUp = ({ handleClose }) => {
         variant="standard"
         fullWidth
       />
+
+      <Button
+        variant="contained"
+        fullWidth
+        sx={{
+          color: "white",
+          backgroundColor: "#5C527F",
+        }}
+      >
+        Sign Up
+      </Button>
     </Box>
   );
 };
