@@ -102,6 +102,9 @@ a {
 .selectDrop:disabled {
   color: white;
 }
+.MuiPaginationItem-root {
+  color: cornsilk;
+}
 
 @media only screen and (max-width: 600px) {
   .coinPageContainer {

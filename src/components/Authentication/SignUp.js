@@ -1,19 +1,52 @@
+import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { Box, TextField, Button } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
+import { CryptoState } from "../../CryptoContext";
+import { auth } from "../../firebase";
 
 const SignUp = ({ handleClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { setAlert } = CryptoState();
 
-  //   const handleEmail = (e) => {
-  //     return setEmail(e.target.value);
-  //   };
+  // const handleEmail = (e) => {
+  //   return setEmail(e.target.value);
+  // };
 
-  const handleSubmit = () => {};
+  const handleSubmit = async () => {
+    if (password !== confirmPassword) {
+      setAlert({
+        open: true,
+        message: " Passwords do not match, try again! ",
+        type: "error",
+      });
+      return;
+    }
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      // console.log(result);
+      setAlert({
+        open: true,
+        message: `Success! Welcome ${result.user.email}!`,
+      });
+      handleClose();
+    } catch (error) {
+      setAlert({
+        open: true,
+        message: error.message,
+        type: "error",
+      });
+      return;
+    }
+  };
 
   return (
-    <Box>
+    <Box p={3}>
       <TextField
         className="standard-email-input"
         label="Email"
@@ -50,7 +83,7 @@ const SignUp = ({ handleClose }) => {
       <Button
         variant="contained"
         fullWidth
-        onSubmit={handleSubmit}
+        onClick={handleSubmit}
         sx={{
           color: "white",
           backgroundColor: "#5C527F",

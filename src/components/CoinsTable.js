@@ -167,6 +167,8 @@ const CoinsTable = () => {
       </TableContainer>
 
       <Pagination
+        style={{ WebkitTextFillColor: "white" }}
+        color="primary"
         count={(handleSearch()?.length / 10).toFixed(0)}
         variant="outlined"
         onChange={(_, value) => {

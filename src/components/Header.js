@@ -12,10 +12,13 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import { CryptoState } from "../CryptoContext";
 import HomeIcon from "@mui/icons-material/Home";
 import AuthModal from "./Authentication/AuthModal";
+import UserSideBar from "./Authentication/UserSideBar";
+
+import Menus from "./Banner/Menu";
 
 const Header = () => {
   const history = useNavigate();
-  const { currency, setCurrency } = CryptoState();
+  const { currency, setCurrency, user } = CryptoState();
 
   const darkTheme = createTheme({
     palette: {
@@ -57,8 +60,8 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
-
-            <AuthModal />
+            {user ? <UserSideBar /> : <AuthModal />}
+            {/* <Menus /> */}
           </Toolbar>
         </Container>
       </AppBar>
