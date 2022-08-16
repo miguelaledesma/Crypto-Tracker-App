@@ -16,6 +16,7 @@ import CurrencyBitcoinIcon from "@mui/icons-material/CurrencyBitcoin";
 import About from "../../Pages/About";
 // import { Link } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -69,6 +70,7 @@ export default function Menus() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const history = useNavigate();
 
   return (
     <div>
@@ -93,9 +95,10 @@ export default function Menus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem disableRipple>
+        <MenuItem onClick={() => history("/")} disableRipple>
           <LoginIcon />
           {/* <AuthModal /> */}
+          Home
         </MenuItem>
         <Link to="/about">
           <MenuItem

@@ -17,7 +17,7 @@ import UserSideBar from "./Authentication/UserSideBar";
 import Menus from "./Banner/Menu";
 
 const Header = () => {
-  const history = useNavigate();
+  // const history = useNavigate();
   const { currency, setCurrency, user } = CryptoState();
 
   const darkTheme = createTheme({
@@ -34,15 +34,21 @@ const Header = () => {
       <AppBar color="transparent" position="static" sx={{ bgcolor: "#3E2C41" }}>
         <Container>
           <Toolbar>
-            <HomeIcon
+            {/* <HomeIcon
               onClick={() => history("/")}
               cursor="pointer"
               fontSize="large"
-            />
+            /> */}
             <Typography
               className="title"
-              style={{ fontFamily: "Montserrat", fontWeight: "bold" }}
-            ></Typography>
+              style={{
+                fontFamily: "Montserrat",
+                fontWeight: "bold",
+                color: "white",
+              }}
+            >
+              {" "}
+            </Typography>
 
             <Select
               className="selectDrop"
@@ -60,8 +66,8 @@ const Header = () => {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"EUR"}>EUR</MenuItem>
             </Select>
+            <Menus />
             {user ? <UserSideBar /> : <AuthModal />}
-            {/* <Menus /> */}
           </Toolbar>
         </Container>
       </AppBar>
