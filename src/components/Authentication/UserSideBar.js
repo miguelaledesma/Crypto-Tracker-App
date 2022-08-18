@@ -14,6 +14,7 @@ import { CryptoState } from "../../CryptoContext";
 import Avatar from "@mui/material/Avatar";
 import { signOut } from "@firebase/auth";
 import { auth } from "../../firebase";
+import "../../index.css";
 
 export default function UserSideBar() {
   const [state, setState] = React.useState({
@@ -49,7 +50,11 @@ export default function UserSideBar() {
         <React.Fragment key={anchor}>
           <Avatar
             onClick={toggleDrawer(anchor, true)}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              marginLeft: "1rem",
+              backgroundColor: "lightgreen",
+            }}
           />
           <Drawer
             anchor={anchor}
@@ -97,10 +102,10 @@ export default function UserSideBar() {
                 ></div>
               </div>
               <Button
+                className="logout-btn"
                 style={{
                   height: "8%",
                   width: "100%",
-
                   marginTop: 20,
                 }}
                 variant="contained"

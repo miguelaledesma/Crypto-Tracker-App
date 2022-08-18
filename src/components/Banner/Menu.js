@@ -95,7 +95,11 @@ export default function Menus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={() => history("/")} disableRipple>
+        <MenuItem
+          onClick={() => history("/")}
+          disableRipple
+          style={{ color: "black" }}
+        >
           <LoginIcon />
           {/* <AuthModal /> */}
           Home
@@ -111,10 +115,16 @@ export default function Menus() {
           </MenuItem>
         </Link>
         <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
-          <NewspaperIcon />
-          Crypto News
-        </MenuItem>
+        <Link to="/news">
+          <MenuItem
+            onClick={handleClose}
+            disableRipple
+            style={{ color: "black" }}
+          >
+            <NewspaperIcon />
+            Crypto News
+          </MenuItem>
+        </Link>
         <MenuItem onClick={handleClose} disableRipple>
           <MoreHorizIcon />
           More

@@ -39,15 +39,16 @@ export default function AuthModal() {
         variant="text"
         style={{
           width: 85,
-          height: 40,
-          marginLeft: 10,
+          height: 37,
+          marginLeft: 5,
           color: "black",
           size: "16px",
           textTransform: "none",
+          backgroundColor: "white",
         }}
         onClick={handleOpen}
       >
-        Login/Sign-Up
+        LOGIN
       </Button>
       <Modal
         aria-labelledby="transition-modal-title"
