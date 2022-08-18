@@ -26,7 +26,7 @@ const CryptoNews = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`http://localhost:3001/news`);
+      const res = await axios.get(`/news`);
 
       setArticles(res.data.articles);
     };
