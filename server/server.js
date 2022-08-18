@@ -11,7 +11,7 @@ app.get("/news", cors(), async (req, res) => {
     );
 
     res.send({ articles: articles.data.articles });
-    console.log(articles);
+    // console.log(articles);
   } catch (err) {
     console.log(err);
   }
