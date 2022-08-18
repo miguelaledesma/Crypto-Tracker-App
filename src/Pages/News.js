@@ -31,7 +31,7 @@ const CryptoNews = () => {
       setArticles(res.data.articles);
     };
     fetchData();
-  });
+  }, []);
 
   if (!articles) {
     return <LinearProgress style={{ backgroundColor: "#0c3c4c" }} />;
