@@ -11,24 +11,27 @@ const CryptoNews = () => {
 
   const apiKey = "644b946eec0b49f4ba12589738e0877f";
 
-  const today = Date.now();
+  // const today = Date.now();
+  // useEffect(() => {
+  //   setLoading(true);
+  //   const fetchData = async () => {
+  //     const res = await axios.get(
+  //       `https://newsapi.org/v2/everything?q=bitcoin&from=${today}&sortBy=popularity&apiKey=644b946eec0b49f4ba12589738e0877f`
+  //     );
+
+  //     setArticles(res.data.articles);
+  //   };
+  //   fetchData();
+  // }, []);
+
   useEffect(() => {
-    setLoading(true);
     const fetchData = async () => {
-      const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=bitcoin&from=${today}&sortBy=popularity&apiKey=644b946eec0b49f4ba12589738e0877f`
-      );
-      console.log(res);
+      const res = await axios.get(`http://localhost:3001/news`);
+
       setArticles(res.data.articles);
     };
     fetchData();
-  }, []);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:3001/news").then((res) => {
-  //     console.log(res.articles);
-  //   });
-  // });
+  });
 
   if (!articles) {
     return <LinearProgress style={{ backgroundColor: "#0c3c4c" }} />;
