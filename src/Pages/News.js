@@ -24,6 +24,12 @@ const CryptoNews = () => {
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //   fetch("http://localhost:3001/news").then((res) => {
+  //     console.log(res.articles);
+  //   });
+  // });
+
   if (!articles) {
     return <LinearProgress style={{ backgroundColor: "#0c3c4c" }} />;
   }
