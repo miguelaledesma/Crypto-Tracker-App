@@ -1,9 +1,13 @@
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
-
+const PORT = process.env.PORT || 3001;
 const app = express();
-const today = Date.now();
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
 app.get("/news", cors(), async (req, res) => {
   try {
     const articles = await axios.get(
@@ -17,6 +21,6 @@ app.get("/news", cors(), async (req, res) => {
   }
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   console.log("server started ");
 });
