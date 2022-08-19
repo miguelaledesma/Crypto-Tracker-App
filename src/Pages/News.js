@@ -24,9 +24,11 @@ const CryptoNews = () => {
   //   fetchData();
   // }, []);
 
+  const URL = "https://miguel-news-server.herokuapp.com/";
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(`/news`);
+      const res = await axios.get(`${URL}/news`);
 
       setArticles(res.data.articles);
     };
