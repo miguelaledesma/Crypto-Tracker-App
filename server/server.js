@@ -3,11 +3,14 @@ const axios = require("axios");
 const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const path = require("path");
+
+app.use(express.static("build"));
 
 const today = Date.now();
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use("/", (req, res) => {
+  return res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 
 app.get("/news", cors(), async (req, res) => {
