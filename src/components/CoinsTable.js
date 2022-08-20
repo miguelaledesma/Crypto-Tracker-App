@@ -57,11 +57,15 @@ const CoinsTable = () => {
         variant="outlined"
         input
         inputProps={{
-          style: { color: "white", fontFamily: "Montserrat", fontSize: 15 },
+          style: {
+            color: "white",
+            fontFamily: "Montserrat",
+            fontSize: 15,
+          },
         }}
         InputLabelProps={{ style: { color: "white" } }}
         color="primary"
-        focused
+        style={{ border: "1px solid white" }}
         className="searchBar"
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -79,7 +83,7 @@ const CoinsTable = () => {
                     style={{
                       color: "white",
                       fontFamily: "Montserrat",
-                      backgroundColor: "#6E85B2",
+                      backgroundColor: "#5C527F",
                     }}
                     align={head === "Coin" ? " " : "right"}
                   >

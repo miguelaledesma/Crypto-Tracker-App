@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar color="transparent" position="static" sx={{ bgcolor: "#3E2C41" }}>
+      <AppBar color="transparent" position="static" sx={{ bgcolor: "#5C527F" }}>
         <Container>
           <Toolbar>
             <Typography
