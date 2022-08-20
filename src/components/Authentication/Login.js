@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, TextField, Button } from "@mui/material";
+import { Box, TextField, Button, Typography } from "@mui/material";
 import { CryptoState } from "../../CryptoContext";
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { auth } from "../../firebase";
@@ -37,7 +37,16 @@ const Login = ({ handleClose }) => {
     }
   };
   return (
-    <Box>
+    <Box p={3}>
+      <Typography
+        style={{
+          textAlign: "center",
+          fontWeight: "800",
+          fontFamily: "Montserrat",
+        }}
+      >
+        Login to see your watchlist
+      </Typography>
       <TextField
         className="standard-email-input"
         label="Email"
@@ -47,6 +56,7 @@ const Login = ({ handleClose }) => {
         autoComplete="current-email"
         variant="standard"
         fullWidth
+        required
         sx={{ marginTop: ".5rem" }}
       />
 
@@ -59,6 +69,7 @@ const Login = ({ handleClose }) => {
         autoComplete="current-password"
         variant="standard"
         fullWidth
+        required
       />
 
       <Button
@@ -70,6 +81,11 @@ const Login = ({ handleClose }) => {
           backgroundColor: "#5C527F",
           padding: "1rem",
           marginTop: "1rem",
+          fontFamily: "Montserrat",
+          "&:hover": {
+            backgroundColor: "lightgreen",
+            fontWeight: "800",
+          },
         }}
       >
         Login

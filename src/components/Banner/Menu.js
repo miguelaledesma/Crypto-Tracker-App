@@ -83,6 +83,7 @@ export default function Menus() {
         disableElevation
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
+        style={{ fontFamily: "Montserrat", fontWeight: "600" }}
       >
         Menu
       </Button>
@@ -98,7 +99,7 @@ export default function Menus() {
         <MenuItem
           onClick={() => history("/")}
           disableRipple
-          style={{ color: "black" }}
+          style={{ color: "black", fontFamily: "Montserrat" }}
         >
           <LoginIcon />
           {/* <AuthModal /> */}
@@ -107,7 +108,7 @@ export default function Menus() {
         <Link to="/about">
           <MenuItem
             onClick={handleClose}
-            style={{ color: "black" }}
+            style={{ color: "black", fontFamily: "Montserrat" }}
             disableRipple
           >
             <CurrencyBitcoinIcon />
@@ -119,13 +120,17 @@ export default function Menus() {
           <MenuItem
             onClick={handleClose}
             disableRipple
-            style={{ color: "black" }}
+            style={{ color: "black", fontFamily: "Montserrat" }}
           >
             <NewspaperIcon />
             Crypto News
           </MenuItem>
         </Link>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem
+          onClick={handleClose}
+          style={{ fontFamily: "Montserrat", color: "black" }}
+          disableRipple
+        >
           <MoreHorizIcon />
           More
         </MenuItem>

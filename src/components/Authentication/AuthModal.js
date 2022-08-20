@@ -45,6 +45,8 @@ export default function AuthModal() {
           size: "16px",
           textTransform: "none",
           backgroundColor: "white",
+          fontFamily: "Montserrat",
+          fontWeight: "600",
         }}
         onClick={handleOpen}
       >
@@ -76,9 +78,23 @@ export default function AuthModal() {
                 variant="fullWidth"
                 style={{ borderRadius: 10 }}
               >
-                <Tab style={{ color: "#5C527F" }} label="Login" />
+                <Tab
+                  style={{
+                    color: "#5C527F",
+                    fontFamily: "Montserrat",
+                    fontWeight: "700",
+                  }}
+                  label="Login"
+                />
 
-                <Tab style={{ color: "#5C527F" }} label="Sign Up" />
+                <Tab
+                  style={{
+                    color: "#5C527F",
+                    fontFamily: "Montserrat",
+                    fontWeight: "700",
+                  }}
+                  label="Sign Up"
+                />
               </Tabs>
             </AppBar>
 

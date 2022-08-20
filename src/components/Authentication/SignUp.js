@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { Box, TextField, Button } from "@mui/material";
+import { Box, TextField, Button, Typography } from "@mui/material";
 import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
 import { auth } from "../../firebase";
@@ -47,6 +47,15 @@ const SignUp = ({ handleClose }) => {
 
   return (
     <Box p={3}>
+      <Typography
+        style={{
+          textAlign: "center",
+          fontWeight: "800",
+          fontFamily: "Montserrat",
+        }}
+      >
+        Create an Account
+      </Typography>
       <TextField
         className="standard-email-input"
         label="Email"
@@ -56,6 +65,7 @@ const SignUp = ({ handleClose }) => {
         autoComplete="current-email"
         variant="standard"
         fullWidth
+        required
         sx={{ marginTop: ".5rem" }}
       />
 
@@ -68,6 +78,7 @@ const SignUp = ({ handleClose }) => {
         autoComplete="current-password"
         variant="standard"
         fullWidth
+        required
       />
       <TextField
         className="standard-confirm-input"
@@ -78,6 +89,7 @@ const SignUp = ({ handleClose }) => {
         autoComplete="current-password"
         variant="standard"
         fullWidth
+        required
       />
 
       <Button
@@ -89,6 +101,11 @@ const SignUp = ({ handleClose }) => {
           backgroundColor: "#5C527F",
           padding: "1rem",
           marginTop: "1rem",
+          fontFamily: "Montserrat",
+          "&:hover": {
+            backgroundColor: "lightgreen",
+            fontWeight: "800",
+          },
         }}
       >
         Sign Up

@@ -34,11 +34,6 @@ const Header = () => {
       <AppBar color="transparent" position="static" sx={{ bgcolor: "#3E2C41" }}>
         <Container>
           <Toolbar>
-            {/* <HomeIcon
-              onClick={() => history("/")}
-              cursor="pointer"
-              fontSize="large"
-            /> */}
             <Typography
               className="title"
               style={{
@@ -59,6 +54,8 @@ const Header = () => {
                 height: 40,
                 marginRight: 15,
                 color: "white",
+                fontFamily: "Montserrat",
+                fontWeight: "600",
               }}
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
