@@ -3,9 +3,6 @@ const axios = require("axios");
 const cors = require("cors");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const path = require("path");
-
-// app.use(express.static("build"));
 
 app.get("/news", cors(), async (req, res) => {
   try {
