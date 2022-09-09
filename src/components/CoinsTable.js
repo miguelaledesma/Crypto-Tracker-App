@@ -151,7 +151,8 @@ const CoinsTable = () => {
                           fontFamily: "Montserrat",
                         }}
                       >
-                        {percentChange && "+"}{" "}
+                        {percentChange && "+"}
+                        {""}
                         {row?.price_change_percentage_24h?.toFixed(2)}%
                       </TableCell>
 
