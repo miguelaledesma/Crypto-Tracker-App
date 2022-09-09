@@ -10,11 +10,14 @@ import { numberWithCommas } from "../components/Banner/Carousel";
 import { AccordionDetails } from "@mui/material";
 import { AccordionSummary } from "@mui/material";
 import ExpandMore from "@mui/icons-material/ExpandMore";
+import { Button } from "react-bootstrap";
+import { doc, setDoc } from "@firebase/firestore";
+import { db } from "../firebase";
 
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-  const { symbol, currency } = CryptoState();
+  const { symbol, currency, user, watchlist, setAlert } = CryptoState();
 
   const fetchSingleCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -25,6 +28,25 @@ const CoinPage = () => {
   useEffect(() => {
     fetchSingleCoin();
   }, []);
+
+  const isInWatchList = watchlist.includes(coin?.id);
+
+  const addCoinToWatchList = async () => {
+    const coinRef = doc(db, "watchlist", user.uid);
+    try {
+      await setDoc(coinRef, {
+        coins: watchlist ? [...watchlist, coin?.id] : coin?.id,
+      });
+
+      setAlert({
+        open: true,
+        message: `${coin.name} added to watchlist!`,
+        type: "success",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   if (!coin) {
     return <LinearProgress style={{ backgroundColor: "#0c3c4c" }} />;
@@ -150,6 +172,11 @@ const CoinPage = () => {
           </Typography> */}
           </AccordionDetails>
         </Accordion>
+        {user && (
+          <Button onClick={addCoinToWatchList}>
+            {isInWatchList ? "remove from watchlist" : "add to watchlist"}
+          </Button>
+        )}
       </div>
 
       <CoinInfo coin={coin} />

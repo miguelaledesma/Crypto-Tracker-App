@@ -1,19 +1,11 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { CryptoState } from "../../CryptoContext";
 import Avatar from "@mui/material/Avatar";
 import { signOut } from "@firebase/auth";
 import { auth } from "../../firebase";
+import { numberWithCommas } from "../Banner/Carousel";
 import "../../index.css";
 
 export default function UserSideBar() {
@@ -21,7 +13,7 @@ export default function UserSideBar() {
     right: false,
   });
 
-  const { user, setAlert } = CryptoState();
+  const { user, setAlert, coins, watchlist, symbol } = CryptoState();
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -77,21 +69,24 @@ export default function UserSideBar() {
                   style={{
                     width: "100%",
                     fontSize: 25,
+                    fontFamily: "Montserrat",
                     textAlign: "center",
                     fontWeight: "bolder",
+                    lineHeight: "1.75",
                     wordWrap: "break-word",
                   }}
                 >
-                  {user.email}
+                  {"Dashboard for"} {user.email}
                 </span>
                 <div
                   className="watch-list"
                   style={{
                     flex: 1,
                     width: "100%",
-                    backgroundColor: "grey",
+                    backgroundColor: "white",
                     borderRadius: 10,
                     padding: 15,
+                    fontFamily: "Montserrat",
                     paddingTop: 10,
                     display: "flex",
                     flexDirection: "column",
@@ -99,8 +94,38 @@ export default function UserSideBar() {
                     gap: 12,
                     overflowY: "scroll",
                   }}
-                ></div>
+                >
+                  <span style={{ fontSize: 20 }}>Watchlist</span>
+                  {coins.map((coin) => {
+                    if (watchlist.includes(coin.id))
+                      return (
+                        <div
+                          style={{
+                            padding: 10,
+                            borderRadius: 5,
+                            color: "black",
+                            width: "100%",
+                            display: "flex",
+                            fontFamily: "Montserrat",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            backgroundColor: "white",
+                            boxShadow: "0 0 3px black",
+                          }}
+                        >
+                          <img src={coin?.image} alt={coin?.name} height="40" />
+                          <span>{coin.name}</span>
+                          <span style={{ display: "flex", gap: 8 }}>
+                            {symbol}{" "}
+                            {numberWithCommas(coin.current_price.toFixed(2))}
+                          </span>
+                        </div>
+                      );
+                    else return <></>;
+                  })}
+                </div>
               </div>
+              <div></div>
               <Button
                 className="logout-btn"
                 style={{
