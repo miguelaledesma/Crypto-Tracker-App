@@ -8,7 +8,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 const NewsItem = ({ title, description, url, urlToImage }) => {
   return (
     <Card maxWidth="md" style={{ padding: "1rem", margin: "1rem" }}>
-      <CardActionArea>
+      <CardActionArea disableRipple>
         <CardMedia component="img" height="500" image={urlToImage} alt="" />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
